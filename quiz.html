@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz.css">
 </head>
+
 <body>
-    
+    <div class="time">
+        <img src="./assets/hourglass_8587148.png">
+        <h3><span id="time">02:20</span></h3>
+    </div>
+    <div class="question">
+        <div class="top">
+            <h4>Question 3 out of 10</h4>
+        </div>
+        <div class="mid">
+            <p>What is the capital of France?</p>
+        </div>
+    </div>
+    <div class="options">
+        <label tabindex="0" for="answer-1" class="answer">
+            <input tabindex="-1" type="radio" value="19554" id="answer-1" name="answer-1">
+            <span>Paris</span>
+        </label>
+        <label tabindex="0" for="answer-2" class="answer">
+            <input tabindex="-1" type="radio" value="19554" id="answer-2" name="answer-1">
+            <span>London</span>
+        </label>
+        <label tabindex="0" for="answer-3" class="answer">
+            <input tabindex="-1" type="radio" value="19554" id="answer-3" name="answer-1">
+            <span>Berlin</span>
+        </label>
+        <label tabindex="0" for="answer-4" class="answer">
+            <input tabindex="-1" type="radio" value="19554" id="answer-4" name="answer-1">
+            <span>Madrid</span>
+        </label>
+    </div>
+    <div class="bottom">
+        <button id="pre_btn">Pevious</button>
+        <button id="next_btn">Next</button>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>
