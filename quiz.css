@@ -12,6 +12,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .time {
@@ -42,13 +45,13 @@ body {
 
 .main_q {
   margin-top: 70px;
-  width: 80%;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 3px dashed rgba(255, 0, 0, 0.171);
-  margin-left: 10%;
+  /* margin-left: 10%; */
   padding: 20px;
   background: #f8f8f834;
   border-radius: 10px;

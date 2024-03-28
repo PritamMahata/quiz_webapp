@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timer</title>
+</head>
+<body>
+
+<div id="timer">02:00</div>
+<button onclick="localStorage.setItem('t_time',10)">add time to 20 sec</button>
+
+<script>
+// Get the timer element
+var timerElement = document.getElementById('timer');
+
+// Set the initial time in seconds
+var timeInSeconds = 120;
+
+// Update the timer every second
+var timer = setInterval(function() {
+    // Decrease time by 1 second
+    timeInSeconds--;
+
+    // Calculate minutes and seconds
+    var minutes = Math.floor(timeInSeconds / 60);
+    var seconds = timeInSeconds % 60;
+
+    // Add leading zero if necessary
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    // Update the timer display
+    timerElement.textContent = minutes + ':' + seconds;
+
+    // If time reaches 0, clear the interval
+    if (timeInSeconds <= 0) {
+        clearInterval(timer);
+        // You can perform additional actions here when the timer reaches 0
+        timerElement.textContent = "Time's up!";
+    }
+}, 1000); // 1000 milliseconds = 1 second
+</script>
+
+</body>
+</html>
