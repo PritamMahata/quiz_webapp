@@ -10,10 +10,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(./assets/layered-waves-haikei.svg);
+  background-image: url(./assets/bg2.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  backdrop-filter: blur(10px);
 }
 .top {
   height: 100px;

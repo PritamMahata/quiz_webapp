@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,7 +10,7 @@
 <body>
     <div class="time">
         <img src="./assets/hourglass_8587148.png">
-        <h3><span id="time">02:20</span></h3>
+        <h3><span id="timestamp"></span></h3>
     </div>
     <div class="question">
         <div class="top">
@@ -23,26 +22,57 @@
     </div>
     <div class="options">
         <label tabindex="0" for="answer-1" class="answer">
-            <input tabindex="-1" type="radio" value="19554" id="answer-1" name="answer-1">
+            <input id="a1" tabindex="-1" type="radio" value="1" id="answer-1" name="answer-1">
             <span>Paris</span>
         </label>
         <label tabindex="0" for="answer-2" class="answer">
-            <input tabindex="-1" type="radio" value="19554" id="answer-2" name="answer-1">
+            <input id="a2" tabindex="-1" type="radio" value="2" id="answer-2" name="answer-1">
             <span>London</span>
         </label>
         <label tabindex="0" for="answer-3" class="answer">
-            <input tabindex="-1" type="radio" value="19554" id="answer-3" name="answer-1">
+            <input id="a3" tabindex="-1" type="radio" value="3" id="answer-3" name="answer-1">
             <span>Berlin</span>
         </label>
         <label tabindex="0" for="answer-4" class="answer">
-            <input tabindex="-1" type="radio" value="19554" id="answer-4" name="answer-1">
+            <input id="a4" tabindex="-1" type="radio" value="4" id="answer-4" name="answer-1">
             <span>Madrid</span>
         </label>
     </div>
     <div class="bottom">
         <button id="pre_btn">Pevious</button>
-        <button id="next_btn">Next</button>
+        <button id="next_btn" onclick="save()">Next</button>
     </div>
 </body>
+<script>
+    function checkTime() {
+        console.log("Checking time...");
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var timeString = hours + ":" + minutes + ":" + seconds;
+        // console.log(timeString);
+        // Define the start and end times to show/hide the text
+        var startTimeToShow = "8:00:00"; // Example: Show text from 8:00 AM
+        var endTimeToHide = "8:10:00";   // Example: Hide text from 5:00 PM
+
+        if (timeString >= startTimeToShow && timeString <= endTimeToHide) {
+            console.log("Time to show the text");
+            document.getElementById("timestamp").innerText = timeString;
+        } else {
+            console.log("Time to hide the text");
+            document.getElementById("timestamp").innerText = "Text to hide";
+        }
+    }
+
+    // Check time when the page loads and then every minute
+    window.onload = function () {
+        checkTime(); // Check immediately when the page loads
+        // setInterval(checkTime, 100); // Check every minute
+    };
+</script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
 <script src="script.js"></script>
+
 </html>
