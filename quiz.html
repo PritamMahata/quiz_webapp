@@ -53,8 +53,8 @@
         var timeString = hours + ":" + minutes + ":" + seconds;
         // console.log(timeString);
         // Define the start and end times to show/hide the text
-        var startTimeToShow = "8:00:00"; // Example: Show text from 8:00 AM
-        var endTimeToHide = "8:10:00";   // Example: Hide text from 5:00 PM
+        var startTimeToShow = "16:34:00"; // Example: Show text from 8:00 AM
+        var endTimeToHide = "16:35:00";   // Example: Hide text from 5:00 PM
 
         if (timeString >= startTimeToShow && timeString <= endTimeToHide) {
             console.log("Time to show the text");
@@ -65,10 +65,9 @@
         }
     }
 
-    // Check time when the page loads and then every minute
     window.onload = function () {
-        checkTime(); // Check immediately when the page loads
-        // setInterval(checkTime, 100); // Check every minute
+        checkTime();
+        setInterval(checkTime,100);
     };
 </script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
