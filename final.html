@@ -12,9 +12,6 @@
     <button type="button" onclick="previousPage()">Previous</button>
     <button type="button" onclick="printAns()">print ans</button>
     <script>
-        // Retrieve the scores from the localStorage and calculate the total score
-        // var score1 = localStorage.getItem('selectedOption') ? parseInt(localStorage.getItem('selectedOption')) : 0;
-        // var totalScore = score1;
         function printAns() {
             var score1 = localStorage.getItem('q1') ? parseInt(localStorage.getItem('q1')) : 0;
             var score2 = localStorage.getItem('q2') ? parseInt(localStorage.getItem('q2')) : 0;
@@ -25,8 +22,6 @@
             console.log(parseInt(localStorage.getItem('q1')));
             document.getElementById('score').innerText = "Your total score is: " + totalScore;
         }
-
-
 
 
         // previous page 
@@ -44,5 +39,8 @@
         });
     </script>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="script.js"></script>
 
 </html>

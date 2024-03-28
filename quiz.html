@@ -12,66 +12,49 @@
         <img src="./assets/hourglass_8587148.png">
         <h3><span id="timestamp"></span></h3>
     </div>
+    <div class="main_q">
     <div class="question">
         <div class="top">
             <h4>Question 3 out of 10</h4>
         </div>
         <div class="mid">
-            <p>What is the capital of France?</p>
+            <p>1 + 1 = ?</p>
         </div>
     </div>
     <div class="options">
-        <label tabindex="0" for="answer-1" class="answer">
-            <input id="a1" tabindex="-1" type="radio" value="1" id="answer-1" name="answer-1">
-            <span>Paris</span>
-        </label>
-        <label tabindex="0" for="answer-2" class="answer">
-            <input id="a2" tabindex="-1" type="radio" value="2" id="answer-2" name="answer-1">
-            <span>London</span>
-        </label>
-        <label tabindex="0" for="answer-3" class="answer">
-            <input id="a3" tabindex="-1" type="radio" value="3" id="answer-3" name="answer-1">
-            <span>Berlin</span>
-        </label>
-        <label tabindex="0" for="answer-4" class="answer">
-            <input id="a4" tabindex="-1" type="radio" value="4" id="answer-4" name="answer-1">
-            <span>Madrid</span>
-        </label>
+        <div class="op">
+            <input type="radio" id="option1" name="options" value="option1">
+            <label for="option1">2</label>
+        </div>
+        <div class="op">
+            <input type="radio" id="option2" name="options" value="option2">
+            <label for="option2">8</label>
+        </div>
+        <div class="op">
+            <input type="radio" id="option3" name="options" value="option3">
+            <label for="option3">11</label>
+        </div>
+        <div class="op">
+            <input type="radio" id="option4" name="options" value="option4">
+            <label for="option4">5</label>
+        </div>
     </div>
+</div>
     <div class="bottom">
         <button id="pre_btn">Pevious</button>
         <button id="next_btn" onclick="save()">Next</button>
     </div>
 </body>
+
 <script>
-    function checkTime() {
-        console.log("Checking time...");
-        var currentTime = new Date();
-        var hours = currentTime.getHours();
-        var minutes = currentTime.getMinutes();
-        var seconds = currentTime.getSeconds();
-        var timeString = hours + ":" + minutes + ":" + seconds;
-        // console.log(timeString);
-        // Define the start and end times to show/hide the text
-        var startTimeToShow = "16:34:00"; // Example: Show text from 8:00 AM
-        var endTimeToHide = "16:35:00";   // Example: Hide text from 5:00 PM
-
-        if (timeString >= startTimeToShow && timeString <= endTimeToHide) {
-            console.log("Time to show the text");
-            document.getElementById("timestamp").innerText = timeString;
-        } else {
-            console.log("Time to hide the text");
-            document.getElementById("timestamp").innerText = "Text to hide";
-        }
-    }
-
     window.onload = function () {
         checkTime();
-        setInterval(checkTime,100);
+        // setInterval(checkTime, 100);
     };
 </script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
 <script src="script.js"></script>
+<script src="timer.js"></script>
 
 </html>

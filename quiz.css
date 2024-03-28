@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: #aefff8;
+  background-color: #ff6e89;
   background-image: url(./assets/layered-waves-haikei.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -40,13 +40,28 @@ body {
   }
 } */
 
-.question {
-  height: auto;
-  /* border: 2px solid red; */
-  margin-top: 40px;
+.main_q {
+  margin-top: 70px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border: 3px dashed rgba(255, 0, 0, 0.171);
+  margin-left: 10%;
+  padding: 20px;
+  background: #f8f8f834;
+  border-radius: 10px;
+  /* border: 2px solid red; */
+}
+
+.question {
+  height: auto;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-top: 100px; */
   .top {
     margin-bottom: 20px;
   }
@@ -54,17 +69,35 @@ body {
 .options {
   display: grid;
   grid-template-columns: auto auto;
-  justify-items: center;
+  justify-content: space-evenly;
   margin-top: 50px;
-  button {
-    width: fit-content;
-    padding: 10px 60px;
-    margin: 15px 0px;
-    border-radius: 10px;
-    border: none;
+  align-items: stretch;
+
+  input[type="radio"] {
+    display: none;
+  }
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    cursor: pointer;
+    border: 2px solid #e2e2e2;
+    border-radius: 5px;
+    height: 35px;
+    width: 140px;
+    margin: 5px;
+    box-shadow: 3px 4px 0px 0px rgb(208 212 208);
+  }
+  input[type="radio"]:checked + label {
+    background-color: #c5ff5a;
+    border: #33413731 2px solid;
+  }
+  label:active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(2px);
   }
 }
-
 .answer {
   display: flex;
   margin: 12px;
@@ -89,14 +122,15 @@ body {
   justify-content: space-evenly;
   margin-top: 100px;
   button {
-    width: 200px;
-    padding: 10px 50px;
+    width: 125px;
+    padding: 10px 0px;
     margin: 15px;
-    border-radius: 10px;
-    border: 2px solid #ffcccc;
+    border-radius: 5px;
+    border: 2px solid #2c2c2c21;
+    box-shadow: 3px 4px 0px 0px rgb(208 212 208);
   }
   #pre_btn {
-    background-color: #ff8585;
+    background-color: #ff8989;
   }
   #next_btn {
     background-color: #85ffaa;
