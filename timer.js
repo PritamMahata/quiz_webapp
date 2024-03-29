@@ -28,7 +28,7 @@ function setTimer() {
       bottom.innerHTML = `
             <div class="result" style="background-color: #f2f2f2; padding: 20px; border-radius: 5px; display:flex; flex-direction: column; justify-content:center; align-items:center; width:100%;">
                 <h2> Time Up</h2>
-                <h5>  🏆 Your Score:  Correct Answers</h5>
+                <h5>  🏆 Your Score: ${print_score()}/10</h5>
                 <p> 🎉 Congratulations for completing the quiz! 🎉 </p>
             </div>
         `;

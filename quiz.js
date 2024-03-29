@@ -197,7 +197,7 @@ function print_score() {
       : 0;
   }
   localStorage.setItem("score", score);
-  console.log(score);
+  return score;
 }
 
 function check_ans(q_index) {
