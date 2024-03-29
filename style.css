@@ -42,6 +42,28 @@ body {
   height: 80%;
   width: auto;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  /* border: 2px solid red; */
+  input {
+    width: 70%;
+    height: 50px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    box-shadow: #606060 5px 4px 7px 0px inset;
+    backdrop-filter: blur(38px);
+    background: #e5e5e5;
+    max-width: 400px;
+  }
+}
+
 .bottom {
   height: 100px;
   /* border: 2px solid rgb(255, 0, 242); */
@@ -80,4 +102,3 @@ body {
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
 }
-

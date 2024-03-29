@@ -15,10 +15,9 @@
     <div class="mid">
         <img src="./assets/Its-Quiz-Time-Logo.webp" alt="" srcset="">
     </div>
-    <form class="form" onsubmit="validateForm()" action="" method="post">
-        <input type="text" id="leader_name" name="leader_name" placeholder="Enter Leader Name" required>
-        <br />
-        <input type="number" id="semester" name="semester" placeholder="Enter your Semester" required>
+    <form class="form" onsubmit="return validateForm()" action="" method="post">
+        <input type="text" id="leader_name" name="leader_name" placeholder="Enter Leader Name" required> <br /> <br />
+        <input type="text" id="semester" name="semester" placeholder="Enter your Semester" required>
     </form>
     <div class="bottom">
         <button id="start_btn" onclick="validateForm()">Start Quiz</button>
@@ -27,19 +26,22 @@
         function validateForm() {
             var leaderName = document.getElementById("leader_name").value;
             var semester = document.getElementById("semester").value;
+
+            // Validate leader name
             var nameRegex = /^[a-zA-Z\s]*$/;
+            // Validate semester
             var validSemesters = ["2", "4", "6"];
 
-            if (!nameRegex.test(leaderName) || leaderName == "") {
+            if (!nameRegex.test(leaderName)) {
                 alert("Please enter alphabets only for Leader Name.");
+                return false;
             }
-            else if (!validSemesters.includes(semester) || semester == "") {
+            else if (!validSemesters.includes(semester)) {
                 alert("Please enter 2, 4, or 6 for Semester.");
+                return false;
             }
             else {
                 window.location.href = "quiz.html";
-                localStorage.setItem("leaderName", leaderName);
-                localStorage.setItem("semester", semester);
             }
         }
     </script>

@@ -42,7 +42,7 @@ function setTimer() {
 
       timerElement.textContent = minutes + ":" + seconds;
     }
-  }, 1000);
+  }, 500);
 }
 
 // localStorage.setItem('t_time',120);
