@@ -124,6 +124,8 @@ function display_question() {
 // console.log(questions[index].options[3]);
 
 function next() {
+  print_score();
+  save();
   let storedValue = "";
   if (mainIndex >= 10) {
     console.log("last question");

@@ -26,5 +26,5 @@ function save() {
   // database.ref("users/"+ sem + username).set({
     
   // });
-  alert("Data Saved");
+  // alert("Data Saved");
 }
