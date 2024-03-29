@@ -42,7 +42,7 @@ function setTimer() {
 
       timerElement.textContent = minutes + ":" + seconds;
     }
-  }, 500);
+  }, 1000);
 }
 
 // localStorage.setItem('t_time',120);
@@ -67,5 +67,7 @@ function checkTime() {
   } else {
     console.log("Time to hide the text");
     document.getElementById("timestamp").innerText = "00 : 00";
+    print_score();
+    save(); //firebase data save
   }
 }

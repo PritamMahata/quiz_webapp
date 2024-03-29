@@ -16,9 +16,15 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 // var val = document.getElementById("1").Value();
 function save() {
-  var username = "pritam";
-  database.ref("users/" + username).set({
-    result: 1,
+  let username = localStorage.getItem("leaderName");
+  let sem = localStorage.getItem("semester");
+  let score = localStorage.getItem("score");
+  database.ref("users/" + sem).set({
+    LeaderName: username,
+    Score: score,
   });
+  // database.ref("users/"+ sem + username).set({
+    
+  // });
   alert("Data Saved");
 }

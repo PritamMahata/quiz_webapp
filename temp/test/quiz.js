@@ -16,8 +16,8 @@ if (
   localStorage.getItem("q1") == "" ||
   localStorage.getItem("q1") == undefined
 ) {
-  for (let i = 1; i <= 10; i++) {
-    localStorage.setItem(`q${i}`, 0);
+  for (let i = 0; i <= 9; i++) {
+    localStorage.setItem(`q${i}`, "0");
   }
 }
 
@@ -26,7 +26,7 @@ if (
   localStorage.getItem("1") == "" ||
   localStorage.getItem("1") == undefined
 ) {
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 0; i <= 9; i++) {
     localStorage.setItem(`${i}`, "0");
   }
 }
@@ -46,37 +46,37 @@ const questions = [
   },
   {
     question: "III. 1 + 5 = ?",
-    options: ["9", "12", "10", "6"],
+    options: ["9", "12", "43", "6"],
     answer: "option4",
   },
   {
     question: "IV. 3 + 5 = ?",
-    options: ["9", "12", "10", "8"],
+    options: ["9", "12", "23", "8"],
     answer: "option4",
   },
   {
     question: "V. 5 + 2 = ?",
-    options: ["7", "12", "10", "8"],
+    options: ["7", "12", "198", "8"],
     answer: "option1",
   },
   {
     question: "VI. 11 - 1  = ?",
-    options: ["9", "12", "10", "8"],
+    options: ["9", "12", "15", "8"],
     answer: "option3",
   },
   {
     question: "VII. 0 + 5 = ?",
-    options: ["5", "12", "10", "8"],
+    options: ["5", "12", "18", "8"],
     answer: "option1",
   },
   {
     question: "VIII. 12 + 5 = ?",
-    options: ["9", "17", "10", "8"],
+    options: ["9", "17", "15", "8"],
     answer: "option2",
   },
   {
     question: "IX. 5 + 11 = ?",
-    options: ["16", "12", "10", "8"],
+    options: ["16", "12", "112", "8"],
     answer: "option1",
   },
   {
@@ -87,20 +87,20 @@ const questions = [
   // Add more questions here in a similar format
 ];
 
-function display_question(index) {
+function display_question() {
   questionElem.innerHTML = `
   <div class="top">
-    <h4>Question ${index + 1} out of 10</h4>
+    <h4>Question ${q_index + 1} out of 10</h4>
   </div>
     <div class="mid">
-        <p>${questions[index].question}</p>
+        <p>${questions[q_index].question}</p>
     </div>
   `;
 
-  option1.innerHTML = `${questions[index].options[0]}`;
-  option2.innerHTML = `${questions[index].options[1]}`;
-  option3.innerHTML = `${questions[index].options[2]}`;
-  option4.innerHTML = `${questions[index].options[3]}`;
+  option1.innerHTML = `${questions[q_index].options[0]}`;
+  option2.innerHTML = `${questions[q_index].options[1]}`;
+  option3.innerHTML = `${questions[q_index].options[2]}`;
+  option4.innerHTML = `${questions[q_index].options[3]}`;
 
   // check_ans();\
 }
@@ -125,7 +125,7 @@ function display_question(index) {
 
 function next() {
   let storedValue = "";
-  if (q_index >= 10) {
+  if (mainIndex >= 10) {
     console.log("last question");
     questionElem.innerHTML = `
     <div class="top">
@@ -134,31 +134,42 @@ function next() {
     `;
   } else {
     q_index++;
-    display_question(q_index);
-  }
+    display_question();
 
-  // for answer checking
-  const selectedOption = document.querySelector(
-    'input[name="options"]:checked'
-  );
-  console.log(selectedOption);
-  if (selectedOption) {
-    localStorage.setItem(`${mainIndex}`, selectedOption.value);
-    storedValue = localStorage.getItem(`${mainIndex}`);
-    console.log("stored value " + storedValue);
-  }
+    // for answer checking
+    const selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    console.log(selectedOption);
+    if (selectedOption) {
+      localStorage.setItem(`${mainIndex}`, selectedOption.value);
+      storedValue = localStorage.getItem(`${mainIndex}`);
+      console.log("stored value " + storedValue);
+    }
 
-  var ans = questions[q_index-1].answer;
-  // console.log("this is ", ans);
-  if (localStorage.getItem(`${mainIndex}`) == ans) {
-    localStorage.setItem(`q${mainIndex}`, 1);
-    console.log("correct");
-  } else {
-    localStorage.setItem(`q${mainIndex}`, 0);
-    console.log("Wrong");
+    var ans = questions[q_index - 1].answer;
+    // console.log("this is ", ans);
+    if (localStorage.getItem(`${mainIndex}`) == ans) {
+      localStorage.setItem(`q${mainIndex}`, 1);
+      console.log("correct");
+    } else {
+      localStorage.setItem(`q${mainIndex}`, 0);
+      console.log("Wrong");
+    }
+    console.log("ans " + ans);
+    console.log("real answer " + questions[`${mainIndex}`].options[2]);
+    mainIndex++;
   }
-  console.log("ans "+ ans);
-  mainIndex++;
+  // triggerFunction();
+  // function triggerFunction() {
+    const storedValueR = localStorage.getItem(`${mainIndex}`);
+    if (storedValueR) {
+      const radioBtn = document.getElementById(storedValueR);
+      if (radioBtn) {
+        radioBtn.checked = true;
+      }
+    }
+  // }
 }
 
 function previous() {
@@ -166,13 +177,15 @@ function previous() {
     console.log("1st question");
   } else {
     q_index--;
-    display_question(q_index);
+    display_question();
   }
-  mainIndex--;
+  if (mainIndex >= 0) {
+    mainIndex--;
+  }
 }
 
 // window.onload = function () {
-display_question(0);
+display_question();
 // };
 function print() {
   let score = 0;
