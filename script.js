@@ -19,12 +19,11 @@ function save() {
   let username = localStorage.getItem("leaderName");
   let sem = localStorage.getItem("semester");
   let score = localStorage.getItem("score");
-  database.ref("users/" + sem).set({
-    LeaderName: username,
+  database.ref("users/" + sem + "/" + username).set({
     Score: score,
   });
-  // database.ref("users/"+ sem + username).set({
-    
-  // });
-  // alert("Data Saved");
 }
+// database.ref("users/"+ sem + username).set({
+
+// });
+// alert("Data Saved");
