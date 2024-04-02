@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Data Table</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+
+<body>
+    <div class="btn">
+        <input type="number" name="" id="s">
+        <button onclick="fetchData()">Fetch Data</button>
+    </div>
+    </div>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Submit Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Table body will be populated dynamically -->
+        </tbody>
+    </table>
+    <script>
+        // Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAfHn9TSpvfwEnc_qjbXt0XB4VGPFWnVkY",
+            authDomain: "quiz-c288d.firebaseapp.com",
+            databaseURL: "https://quiz-c288d-default-rtdb.firebaseio.com",
+            projectId: "quiz-c288d",
+            storageBucket: "quiz-c288d.appspot.com",
+            messagingSenderId: "500395329413",
+            appId: "1:500395329413:web:86f99586086321f80226ec",
+            measurementId: "G-TZ45439QKP",
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var database = firebase.database();
+
+        // Function to fetch data and populate table
+        // let sem = 4;
+        function fetchData() {
+            var sem = document.getElementById("s").value;
+            var tableBody = document.getElementById('tableBody');
+            database.ref("users/" + sem).once('value', function (snapshot) {
+                tableBody.innerHTML = '';
+                snapshot.forEach(function (childSnapshot) {
+                    var childData = childSnapshot.val();
+                    var username = childSnapshot.key;
+                    var score = childData.Score;
+                    var submitTime = childData.Submit_Time;
+                    var row = '<tr>' +
+                        '<td>' + username + '</td>' +
+                        '<td>' + score + '</td>' +
+                        '<td>' + submitTime + '</td>' +
+                        '<td>' +
+                        '<button onclick="modify(\'' + username + '\')">Modify</button>' +
+                        '<button onclick="deleteRecord(\'' + username + '\')">Delete</button>' +
+                        '</td>' +
+                        '</tr>';
+                    tableBody.innerHTML += row;
+                });
+            });
+        }
+
+        // Function to modify record
+        function modify(username) {
+            // Add your logic to modify the record
+            console.log('Modify record for ' + username);
+        }
+
+        // Function to delete record
+        function deleteRecord(username) {
+            // Add your logic to delete the record
+            console.log('Delete record for ' + username);
+        }
+
+        // Fetch data initially
+        fetchData();
+    </script>
+</body>
+
+</html>
