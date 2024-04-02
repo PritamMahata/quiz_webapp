@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
 <body>
@@ -13,12 +13,11 @@
         <h1></h1>
     </div>
     <div class="mid">
-        <img src="./assets/Its-Quiz-Time-Logo.webp" alt="" srcset="">
+        <img src="./assets/img/Logo.png" alt="" srcset="">
     </div>
     <form class="form" onsubmit="validateForm()" action="" method="post">
-        <input type="text" id="leader_name" name="leader_name" placeholder="Enter Leader Name" required>
-        <br />
-        <input type="number" id="semester" name="semester" placeholder="Enter your Semester" required>
+        <input type="text" id="leader_name" name="leader_name" placeholder="Enter Leader Name" required> <br /> <br />
+        <input type="text" id="semester" name="semester" placeholder="Enter your Semester" required>
     </form>
     <div class="bottom">
         <button id="start_btn" onclick="validateForm()">Start Quiz</button>
@@ -27,19 +26,32 @@
         function validateForm() {
             var leaderName = document.getElementById("leader_name").value;
             var semester = document.getElementById("semester").value;
+
+            // Validate leader name
             var nameRegex = /^[a-zA-Z\s]*$/;
+            // Validate semester
             var validSemesters = ["2", "4", "6"];
 
-            if (!nameRegex.test(leaderName) || leaderName == "") {
-                alert("Please enter alphabets only for Leader Name.");
-            }
-            else if (!validSemesters.includes(semester) || semester == "") {
-                alert("Please enter 2, 4, or 6 for Semester.");
-            }
-            else {
-                window.location.href = "quiz.html";
-                localStorage.setItem("leaderName", leaderName);
-                localStorage.setItem("semester", semester);
+            switch (true) {
+                case leaderName == "" && semester == "":
+                    alert("Please fill the required fields.");
+                    break;
+                case leaderName == "":
+                    alert("Please enter Leader Name.");
+                    break;
+                case semester == "":
+                    alert("Please enter Semester.");
+                    break;
+                case !nameRegex.test(leaderName):
+                    alert("Please enter alphabets only for Leader Name.");
+                    break;
+                case !validSemesters.includes(semester):
+                    alert("Please enter 2, 4, or 6 for Semester.");
+                    break;
+                default:
+                    window.location.href = "quiz.html";
+                    localStorage.setItem("leaderName", leaderName);
+                    localStorage.setItem("semester", semester);
             }
         }
     </script>

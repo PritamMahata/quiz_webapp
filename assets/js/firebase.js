@@ -9,21 +9,16 @@ var firebaseConfig = {
   measurementId: "G-TZ45439QKP",
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Set database variable
 var database = firebase.database();
-// var val = document.getElementById("1").Value();
 function save() {
   let username = localStorage.getItem("leaderName");
   let sem = localStorage.getItem("semester");
-  let score = localStorage.getItem("score");
+  let score = localStorage.getItem("quizScore");
+  let realTime = localStorage.getItem("currentTime");
   database.ref("users/" + sem + "/" + username).set({
     Score: score,
+    Submit_Time: realTime,
   });
 }
-// database.ref("users/"+ sem + username).set({
-
-// });
-// alert("Data Saved");

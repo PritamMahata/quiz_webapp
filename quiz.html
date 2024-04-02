@@ -1,61 +1,38 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="quiz.css">
+    <title>Multiple Choice Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+<!-- <script src="realtime.js"></script> -->
 
 <body>
     <div class="time">
-        <!-- <img src="./assets/hourglass_8587148.png"> -->
-        <h3><span id="timestamp"></span></h3>
+        <img src="./assets/img/hourglass.png" alt="Hour glass logo" srcset="">
+        <div id="clock">0:00</div>
+        <!-- <span id="clock">00:00</span> -->
     </div>
-    <div class="main_q">
-        <div class="question">
-            <div class="top">
-                <h4>Question 3 out of 10</h4>
-            </div>
-            <div class="mid">
-                <p>1 + 1 = ?</p>
-            </div>
-        </div>
-        <div class="options">
-            <div class="op">
-                <input type="radio" id="option1" name="options" value="option1">
-                <label for="option1" id="l1"></label>
-            </div>
-            <div class="op">
-                <input type="radio" id="option2" name="options" value="option2">
-                <label for="option2" id="l2"></label>
-            </div>
-            <div class="op">
-                <input type="radio" id="option3" name="options" value="option3">
-                <label for="option3" id="l3"></label>
-            </div>
-            <div class="op">
-                <input type="radio" id="option4" name="options" value="option4">
-                <label for="option4" id="l4"></label>
-            </div>
-        </div>
+    <!-- <h1>Multiple Choice Quiz</h1> -->
+    <div id="quiz-container">
+        <div id="question-container"></div>
+        <!-- <button id="prev-btn">Previous</button> -->
     </div>
-    <div class="bottom">
-        <button id="pre_btn" onclick="previous()">Pevious</button>
-        <button id="pre_btn" onclick="next()">next</button>
+    <div class="button-div">
+        <!-- <button id="prev-btn">&lt; Previous</button> -->
+        <button id="next-btn">Next &gt;</button>
     </div>
+    <!-- <button id="rst-btn" onclick="del_time()">Reset time</button> -->
 </body>
-<script>
-    
-    window.onload = function () {
-        checkTime();
-        // setInterval(checkTime, 100);
-    };
-</script>
+
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-<script src="script.js"></script>
-<script src="timer.js"></script>
-<script src="quiz.js"></script>
+<script src="./assets/js/firebase.js"></script>
+<script src="./assets/js/script.js"></script>
+<!-- // delete this -->
+<script src="./assets/js/time.js"></script>
+<script src="./assets/js/realtime.js"></script>
 
 </html>
