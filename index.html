@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <script>
+        window.onload = function() {
+            localStorage.clear();
+        }
+    </script>
     <div class="top">
         <h1></h1>
     </div>
@@ -17,6 +22,15 @@
     </div>
     <form class="form" onsubmit="validateForm()" action="" method="post">
         <input type="text" id="leader_name" name="leader_name" placeholder="Enter Leader Name" required> <br /> <br />
+        <!-- <select name="pets" id="pet-select">
+            <option value="">--Please choose an option--</option>
+            <option value="1">Dog</option>
+            <option value="2">Cat</option>
+            <option value="3">Hamster</option>
+            <option value="4">Parrot</option>
+            <option value="5">Spider</option>
+            <option value="6">Goldfish</option>
+        </select> -->
         <input type="text" id="semester" name="semester" placeholder="Enter your Semester" required>
     </form>
     <div class="bottom">
