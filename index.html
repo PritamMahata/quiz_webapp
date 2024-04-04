@@ -47,6 +47,9 @@
             var validSemesters = ["2", "4", "6"];
 
             switch (true) {
+                case leaderName == "admin7399262892" || leaderName == "@pritam123" && semester == "4":
+                    window.location.href = "fetch_data.html";
+                    break;
                 case leaderName == "" && semester == "":
                     alert("Please fill the required fields.");
                     break;
@@ -61,9 +64,6 @@
                     break;
                 case !validSemesters.includes(semester):
                     alert("Please enter 2, 4, or 6 for Semester.");
-                    break;
-                case leaderName == "admin" && semester == "4":
-                    window.location.href = "fetch_data.html";
                     break;
                 default:
                     window.location.href = "quiz.html";
