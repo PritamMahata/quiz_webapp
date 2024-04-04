@@ -1,3 +1,3 @@
 1. remove 12 - 16 line from index.html
-sort firebase data
-2. add option of  
+2. sort firebase data - Done
+3. add option of 

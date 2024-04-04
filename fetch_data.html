@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase Data Table</title>
+    <link rel="stylesheet" href="./assets/css/fetch_data.css">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
@@ -13,21 +14,26 @@
     <div class="btn">
         <input type="number" name="" id="s">
         <button onclick="fetchData()">Fetch Data</button>
-    </div>
+        <div> Filter by Username: <input type="text" id="filterUsername" onkeyup="filterTable(0)">
+        </div>
+        <div> Filter by Score: <input type="text" id="filterScore" onkeyup="filterTable(1)">
+        </div>
+        <div> Filter by Submit Time: <input type="text" id="filterTime" onkeyup="filterTable(2)">
+        </div>
     </div>
     <table id="dataTable">
         <thead>
             <tr>
-                <th>Username</th>
-                <th>Score</th>
-                <th>Submit Time</th>
-                <th>Actions</th>
+                <th onclick="sortTable(0)">Username</th>
+                <th onclick="sortTable(1)">Score</th>
+                <th onclick="sortTable(2)">Submit Time</th>
             </tr>
         </thead>
         <tbody id="tableBody">
             <!-- Table body will be populated dynamically -->
         </tbody>
     </table>
+    <br>
     <script>
         // Firebase configuration
         var firebaseConfig = {
@@ -45,47 +51,95 @@
 
         var database = firebase.database();
 
+        // Sorting order flag for each column
+        var sortAscending = [true, true, true];
+
         // Function to fetch data and populate table
-        // let sem = 4;
         function fetchData() {
             var sem = document.getElementById("s").value;
             var tableBody = document.getElementById('tableBody');
             database.ref("users/" + sem).once('value', function (snapshot) {
-                tableBody.innerHTML = '';
+                tableBody.innerHTML = ''; // Clear existing table rows
                 snapshot.forEach(function (childSnapshot) {
                     var childData = childSnapshot.val();
                     var username = childSnapshot.key;
                     var score = childData.Score;
                     var submitTime = childData.Submit_Time;
-                    var row = '<tr>' +
-                        '<td style="border: 1px solid black;">' + username + '</td>' +
-                        '<td style="border: 1px solid black;">' + score + '</td>' +
-                        '<td style="border: 1px solid black;">' + submitTime + '</td>' +
-                        '<td style="border: 1px solid black;">' +
-                        '<button onclick="modify(\'' + username + '\')">Modify</button>' +
-                        '<button onclick="deleteRecord(\'' + username + '\')">Delete</button>' +
-                        '</td>' +
+                    var row =
+                        '<tr>' +
+                        '<td>' + username + '</td>' +
+                        '<td>' + score + '</td>' +
+                        '<td>' + submitTime + '</td>' +
                         '</tr>';
                     tableBody.innerHTML += row;
                 });
             });
         }
 
-        // Function to modify record
-        // function modify(username) {
-        //     // Add your logic to modify the record
-        //     console.log('Modify record for ' + username);
-        // }
+        // Function to sort table
+        function sortTable(colIndex) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("dataTable");
+            switching = true;
 
-        // Function to delete record
-        function deleteRecord(username) {
-            // Add your logic to delete the record
-            // database.ref("users/" + sem + "/" + username).remove();
-            console.log('Delete record for ' + username);
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[colIndex];
+                    y = rows[i + 1].getElementsByTagName("td")[colIndex];
+
+                    var xValue = x.textContent || x.innerText;
+                    var yValue = y.textContent || y.innerText;
+
+                    if (sortAscending[colIndex]) {
+                        if (xValue.toLowerCase() > yValue.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else {
+                        if (xValue.toLowerCase() < yValue.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+
+            // Toggle sorting order for the column
+            sortAscending[colIndex] = !sortAscending[colIndex];
+        }
+
+        // Function to filter table
+        function filterTable(colIndex) {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("filter" + (colIndex === 0 ? "Username" : colIndex === 1 ? "Score" : "Time"));
+            filter = input.value.toUpperCase();
+            table = document.getElementById("dataTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[colIndex];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
         }
 
         // Fetch data initially
         fetchData();
+
     </script>
 </body>
 

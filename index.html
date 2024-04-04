@@ -10,7 +10,7 @@
 
 <body>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             localStorage.clear();
         }
     </script>
@@ -21,7 +21,16 @@
         <img src="./assets/img/Logo.png" alt="" srcset="">
     </div>
     <form class="form" onsubmit="validateForm()" action="" method="post">
-        <input type="text" id="leader_name" name="leader_name" placeholder="Enter Group Name" required> <br /> <br />
+        <input type="text" id="leader_name" name="leader_name" placeholder="Enter Leader Name" required> <br /> <br />
+        <!-- <select name="leader_name" id="leader_name">
+            <option value="">--Please choose an option--</option>
+            <option value="1">Dog</option>
+            <option value="2">Cat</option>
+            <option value="3">Hamster</option>
+            <option value="4">Parrot</option>
+            <option value="5">Spider</option>
+            <option value="6">Goldfish</option>
+        </select> -->
         <input type="text" id="semester" name="semester" placeholder="Enter your Semester" required>
     </form>
     <div class="bottom">
@@ -53,6 +62,9 @@
                 case !validSemesters.includes(semester):
                     alert("Please enter 2, 4, or 6 for Semester.");
                     break;
+                case leaderName == "admin" && semester == "4":
+                    window.location.href = "fetch_data.html";
+                    break;
                 default:
                     window.location.href = "quiz.html";
                     localStorage.setItem("leaderName", leaderName);
@@ -61,5 +73,6 @@
         }
     </script>
 </body>
+<script src="./assets/js/admin.js"></script>
 
 </html>
