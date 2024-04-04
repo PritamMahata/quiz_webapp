@@ -14,11 +14,17 @@
     <div class="btn">
         <input type="number" name="" id="s">
         <button onclick="fetchData()">Fetch Data</button>
-        <div> Filter by Username: <input type="text" id="filterUsername" onkeyup="filterTable(0)">
+        <div>
+            <p>Filter by Username: </p>
+            <input type="text" id="filterUsername" onkeyup="filterTable(0)">
         </div>
-        <div> Filter by Score: <input type="text" id="filterScore" onkeyup="filterTable(1)">
+        <div>
+            <p>Filter by Score: </p>
+            <input type="text" id="filterScore" onkeyup="filterTable(1)">
         </div>
-        <div> Filter by Submit Time: <input type="text" id="filterTime" onkeyup="filterTable(2)">
+        <div>
+            <p>Filter by Submit Time: </p>
+            <input type="text" id="filterTime" onkeyup="filterTable(2)">
         </div>
     </div>
     <table id="dataTable">
@@ -30,31 +36,11 @@
             </tr>
         </thead>
         <tbody id="tableBody">
-            <!-- Table body will be populated dynamically -->
         </tbody>
     </table>
     <br>
     <script>
-        // Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAfHn9TSpvfwEnc_qjbXt0XB4VGPFWnVkY",
-            authDomain: "quiz-c288d.firebaseapp.com",
-            databaseURL: "https://quiz-c288d-default-rtdb.firebaseio.com",
-            projectId: "quiz-c288d",
-            storageBucket: "quiz-c288d.appspot.com",
-            messagingSenderId: "500395329413",
-            appId: "1:500395329413:web:86f99586086321f80226ec",
-            measurementId: "G-TZ45439QKP",
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        var database = firebase.database();
-
-        // Sorting order flag for each column
         var sortAscending = [true, true, true];
-
-        // Function to fetch data and populate table
         function fetchData() {
             var sem = document.getElementById("s").value;
             var tableBody = document.getElementById('tableBody');
@@ -76,24 +62,19 @@
             });
         }
 
-        // Function to sort table
         function sortTable(colIndex) {
             var table, rows, switching, i, x, y, shouldSwitch;
             table = document.getElementById("dataTable");
             switching = true;
-
             while (switching) {
                 switching = false;
                 rows = table.rows;
-
                 for (i = 1; i < (rows.length - 1); i++) {
                     shouldSwitch = false;
                     x = rows[i].getElementsByTagName("td")[colIndex];
                     y = rows[i + 1].getElementsByTagName("td")[colIndex];
-
                     var xValue = x.textContent || x.innerText;
                     var yValue = y.textContent || y.innerText;
-
                     if (sortAscending[colIndex]) {
                         if (xValue.toLowerCase() > yValue.toLowerCase()) {
                             shouldSwitch = true;
@@ -106,18 +87,14 @@
                         }
                     }
                 }
-
                 if (shouldSwitch) {
                     rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                     switching = true;
                 }
             }
-
-            // Toggle sorting order for the column
             sortAscending[colIndex] = !sortAscending[colIndex];
         }
 
-        // Function to filter table
         function filterTable(colIndex) {
             var input, filter, table, tr, td, i, txtValue;
             input = document.getElementById("filter" + (colIndex === 0 ? "Username" : colIndex === 1 ? "Score" : "Time"));
@@ -136,11 +113,7 @@
                 }
             }
         }
-
-        // Fetch data initially
-        fetchData();
-
     </script>
 </body>
-
+<script src="./assets/js/firebase.js"></script>
 </html>
