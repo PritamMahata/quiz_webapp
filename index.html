@@ -22,7 +22,7 @@
     </div>
     <form class="form" onsubmit="validateForm()" action="" method="post">
         <input type="text" id="leader_name" name="leader_name" placeholder="Enter Leader Name" required> <br /> <br />
-        <!-- <select name="pets" id="pet-select">
+        <!-- <select name="leader_name" id="leader_name">
             <option value="">--Please choose an option--</option>
             <option value="1">Dog</option>
             <option value="2">Cat</option>
@@ -63,7 +63,7 @@
                     alert("Please enter 2, 4, or 6 for Semester.");
                     break;
                 default:
-                    window.location.href = "quiz.html";
+                    // window.location.href = "quiz.html";
                     localStorage.setItem("leaderName", leaderName);
                     localStorage.setItem("semester", semester);
             }

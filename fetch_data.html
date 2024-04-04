@@ -58,10 +58,10 @@
                     var score = childData.Score;
                     var submitTime = childData.Submit_Time;
                     var row = '<tr>' +
-                        '<td>' + username + '</td>' +
-                        '<td>' + score + '</td>' +
-                        '<td>' + submitTime + '</td>' +
-                        '<td>' +
+                        '<td style="border: 1px solid black;">' + username + '</td>' +
+                        '<td style="border: 1px solid black;">' + score + '</td>' +
+                        '<td style="border: 1px solid black;">' + submitTime + '</td>' +
+                        '<td style="border: 1px solid black;">' +
                         '<button onclick="modify(\'' + username + '\')">Modify</button>' +
                         '<button onclick="deleteRecord(\'' + username + '\')">Delete</button>' +
                         '</td>' +
@@ -72,14 +72,15 @@
         }
 
         // Function to modify record
-        function modify(username) {
-            // Add your logic to modify the record
-            console.log('Modify record for ' + username);
-        }
+        // function modify(username) {
+        //     // Add your logic to modify the record
+        //     console.log('Modify record for ' + username);
+        // }
 
         // Function to delete record
         function deleteRecord(username) {
             // Add your logic to delete the record
+            // database.ref("users/" + sem + "/" + username).remove();
             console.log('Delete record for ' + username);
         }
 
