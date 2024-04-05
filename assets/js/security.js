@@ -8,9 +8,5 @@ document.addEventListener("visibilitychange", function () {
 
 document.addEventListener('keyup', (e)=>{
     navigator.clipboard.writeText('')
-    alert('Screen capture is disabled for security reasons.')
+    alert('Permission denied!')
 })
-
-window.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-  });
