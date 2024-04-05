@@ -26,14 +26,17 @@
         .btn input[type="text"] {
             padding: 5px;
             margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
-        .btn button {
+        button {
             padding: 5px 10px;
             background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
+            border-radius: 10px;
         }
 
         table {
@@ -57,6 +60,52 @@
         tr:hover {
             background-color: #f5f5f5;
         }
+
+        /* Additional Styling Effects */
+        .container {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .btn button:hover {
+            background-color: #45a049;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        #dataTable {
+            margin-top: 20px;
+        }
+
+        #dataTable th {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #dataTable th:hover {
+            background-color: #45a049;
+        }
+
+        #dataTable td {
+            transition: background-color 0.3s ease;
+        }
+
+        #dataTable tr:hover td {
+            background-color: #f0f0f0;
+        }
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
@@ -65,20 +114,25 @@
 <body>
     <div class="container">
         <div class="btn">
+        <p>Filter by Semester:</p>
             <input type="number" name="" id="s">
             <button onclick="fetchData()">Fetch Data</button>
         </div>
         <div>
             <p>Filter by Username: </p>
             <input type="text" id="filterUsername" onkeyup="filterTable(0)">
+            <button onclick="fetchData()">Fetch Data</button>
         </div>
         <div>
             <p>Filter by Score: </p>
             <input type="text" id="filterScore" onkeyup="filterTable(1)">
+            <button onclick="fetchData()">Fetch Data</button>
         </div>
         <div>
             <p>Filter by Submit Time: </p>
             <input type="text" id="filterTime" onkeyup="filterTable(2)">
+            <button onclick="fetchData()">Fetch Data</button>
+            <br/> <br/>
         </div>
         <table id="dataTable">
             <thead>
