@@ -11,7 +11,10 @@ document.addEventListener('keyup', (e) => {
     alert('Permission denied!');
 });
 
-document.addEventListener('touchstart', function (e) {
-    e.preventDefault();
-    alert('Screenshot not allowed!');
-});
+// Check if the device supports touch events before preventing the default behavior and showing the alert message
+if ('ontouchstart' in window) {
+    document.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        alert('Screenshot not allowed!');
+    });
+}
