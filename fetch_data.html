@@ -6,14 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase Data Table</title>
     <link rel="stylesheet" href="./assets/css/fetch_data.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .btn {
+            margin-bottom: 20px;
+        }
+
+        .btn input[type="number"],
+        .btn input[type="text"] {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .btn button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 
 <body>
-    <div class="btn">
-        <input type="number" name="" id="s">
-        <button onclick="fetchData()">Fetch Data</button>
+    <div class="container">
+        <div class="btn">
+            <input type="number" name="" id="s">
+            <button onclick="fetchData()">Fetch Data</button>
+        </div>
         <div>
             <p>Filter by Username: </p>
             <input type="text" id="filterUsername" onkeyup="filterTable(0)">
@@ -26,19 +80,18 @@
             <p>Filter by Submit Time: </p>
             <input type="text" id="filterTime" onkeyup="filterTable(2)">
         </div>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Username</th>
+                    <th onclick="sortTable(1)">Score</th>
+                    <th onclick="sortTable(2)">Submit Time</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
     </div>
-    <table id="dataTable">
-        <thead>
-            <tr>
-                <th onclick="sortTable(0)">Username</th>
-                <th onclick="sortTable(1)">Score</th>
-                <th onclick="sortTable(2)">Submit Time</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>
-    <br>
     <script>
         var sortAscending = [true, true, true];
         function fetchData() {
