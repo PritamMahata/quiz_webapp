@@ -1,100 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
+.form-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.form-header h1{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-        .btn {
-            margin-bottom: 20px;
-        }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        .btn input[type="number"],
-        .btn input[type="text"] {
-            padding: 5px;
-            margin-right: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+.btn {
+    margin-bottom: 20px;
+}
 
-        button {
-            padding: 5px 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-        }
+.btn input[type="number"],
+.btn input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #212121;
+    border-radius: 5px;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
 
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        th {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
 
-        tr:hover {
-            background-color: #f5f5f5;
-        }
+th {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
 
-        /* Additional Styling Effects */
-        .container {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            background-color: white;
-        }
+tr:hover {
+    background-color: #f3ef0c;
+    cursor: pointer;
+}
 
-        .btn button:hover {
-            background-color: #45a049;
-        }
+.container {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+}
 
-        input[type="text"],
-        input[type="number"] {
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s ease;
-        }
+.btn button:hover {
+    background-color: #313131;
+}
 
-        input[type="text"]:focus,
-        input[type="number"]:focus {
-            outline: none;
-            border-color: #4CAF50;
-        }
+input[type="text"],
+input[type="number"] {
+    padding: 5px;
+    border: 1px solid #313131;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
 
-        #dataTable {
-            margin-top: 20px;
-        }
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
 
-        #dataTable th {
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+#dataTable {
+    margin-top: 20px;
+}
 
-        #dataTable th:hover {
-            background-color: #45a049;
-        }
+#dataTable th {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
 
-        #dataTable td {
-            transition: background-color 0.3s ease;
-        }
+#dataTable th:hover {
+    background-color: #313131;
+}
 
-        #dataTable tr:hover td {
-            background-color: #f0f0f0;
-        }
+#dataTable td {
+    transition: background-color 0.3s ease;
+}

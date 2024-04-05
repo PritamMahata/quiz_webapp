@@ -12,27 +12,32 @@
 
 <body>
     <div class="container">
-        <div class="btn">
-        <p>Filter by Semester:</p>
-            <input type="number" name="" id="s">
-            <button onclick="fetchData()">Fetch Data</button>
-        </div>
+        <!-- <h1 style="color: blue; font-size: 24px; text-align: center;">Data Fetching Form</h1> -->
+            <div class="form-header">
+                <h1>Data Fetching Form</h1>
+            </div>
+        <center>
+            <div class="btn">
+                <label for="s">Filter by Semester:</label>
+                <input type="number" name="" id="s">
+                <button onclick="fetchData()">Fetch Data</button>
+            </div>
+       
+
         <div>
             <p>Filter by Username: </p>
             <input type="text" id="filterUsername" onkeyup="filterTable(0)">
-            <button onclick="fetchData()">Fetch Data</button>
         </div>
         <div>
             <p>Filter by Score: </p>
             <input type="text" id="filterScore" onkeyup="filterTable(1)">
-            <button onclick="fetchData()">Fetch Data</button>
         </div>
         <div>
             <p>Filter by Submit Time: </p>
             <input type="text" id="filterTime" onkeyup="filterTable(2)">
-            <button onclick="fetchData()">Fetch Data</button>
             <br/> <br/>
         </div>
+    </center>
         <table id="dataTable">
             <thead>
                 <tr>
@@ -45,6 +50,7 @@
             </tbody>
         </table>
     </div>
+
     <script>
         var sortAscending = [true, true, true];
         function fetchData() {
