@@ -6,7 +6,11 @@ document.addEventListener("visibilitychange", function () {
     }
 });
 
-document.addEventListener('keyup', (e)=>{
-    navigator.clipboard.writeText('')
-    alert('Permission denied!')
-})
+document.addEventListener('keyup', (e) => {
+    if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
+        alert('This feature is not available on mobile devices.');
+    } else {
+        navigator.clipboard.writeText('');
+        alert('Permission denied!');
+    }
+});
