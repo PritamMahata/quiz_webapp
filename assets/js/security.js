@@ -6,3 +6,8 @@ document.addEventListener("visibilitychange", function () {
         console.log('User came back to the tab');
     }
 });
+
+document.addEventListener('keyup', (e)=>{
+    navigator.clipboard.writeText('')
+    alert('Screen capture is disabled for security reasons.')
+})
