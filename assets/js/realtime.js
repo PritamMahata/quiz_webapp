@@ -26,4 +26,4 @@ function saveCurrentTime(format = 'HH:mm:ss') {
 }
 
 // Call the function to save the current time when the file is loaded
- // Change the format as needed
+// Change the format as needed
