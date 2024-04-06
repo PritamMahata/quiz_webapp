@@ -52,7 +52,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 1s ease-in-out;
+  /* animation: fadeIn 1s ease-in-out; */
 }
 
 @keyframes fadeIn {
@@ -69,7 +69,8 @@ body {
   width: auto;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  animation: rotate 2s infinite linear;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
 }
 
 @keyframes rotate {
