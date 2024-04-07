@@ -15,12 +15,20 @@ body {
 }
 
 #quiz-container {
+  min-width: 260px;
   max-width: 80%;
   margin: 50px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   backdrop-filter: blur(4px);
+  box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+#quiz-container img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
   box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -148,7 +156,7 @@ button:hover {
   font-style: italic;
 }
 
-.button-div{
+.button-div {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,6 +1,6 @@
 const questions = [
   {
-    question: "What is the capital of France?",
+    question: '<center><img src="../assets/img/hourglass.png"></center>',
     options: ["Paris", "Berlin", "London", "Madrid"],
     answer: "Paris",
   },
