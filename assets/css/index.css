@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -11,11 +12,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(../img/bg.jpg);
+  background-image: url(../img/bg.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   font-family: Arial, sans-serif;
+  backdrop-filter: blur(3px);
+  overflow: hidden;
 }
 
 .top {
@@ -67,10 +70,7 @@ body {
 .mid img {
   height: 70%;
   width: auto;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-  -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(7px 7px 4px #ffff71);
 }
 
 @keyframes rotate {
@@ -85,7 +85,7 @@ body {
 .form input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -141,14 +141,14 @@ body {
 
 #start_btn {
   display: flex;
-  padding: 11px 33px;
+  padding: 10px 22px;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  font-size: 25px;
+  font-size: 18px;
   color: white;
   background: #6225e6;
-  transition: 1s;
-  box-shadow: 6px 6px 0 black;
+  transition: 0.5s;
+  box-shadow: 6px 6px 0 #ad9dd0;
   transform: skewX(-15deg);
   border: none;
   border-radius: 5px;
