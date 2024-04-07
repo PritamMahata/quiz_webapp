@@ -12,6 +12,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   background-image: url(../img/bg.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -22,13 +23,14 @@ body {
 }
 
 .top {
-  height: 100px;
+  height: 10%;
+  width: 100%;
+  border: 2px solid red;
+  background-color: azure;
   display: flex;
+  margin-top: 50px;
   justify-content: center;
   align-items: center;
-  margin-top: -200px;
-  margin-bottom: 80px;
-  animation: slideInTop 1s ease-in-out;
 }
 
 @keyframes slideInTop {
@@ -40,14 +42,6 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-.top h1 {
-  font-size: 4.2rem;
-  color: rgb(97, 88, 76);
-  font-family: cursive;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .mid {
@@ -126,7 +120,7 @@ body {
 
 @keyframes slideInBottom {
   0% {
-    transform: translateY(100%);
+    transform: translateY(50%);
     opacity: 0;
   }
   100% {
@@ -147,7 +141,7 @@ body {
   font-size: 18px;
   color: white;
   background: #6225e6;
-  transition: 0.5s;
+  transition: 0.1s;
   box-shadow: 6px 6px 0 #ad9dd0;
   transform: skewX(-15deg);
   border: none;
@@ -179,15 +173,6 @@ body {
 #start_btn:active {
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
-}
-
-h1 {
-  color: #ff5722;
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 1s ease-in-out;
 }
 
 p {
