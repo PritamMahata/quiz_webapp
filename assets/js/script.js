@@ -21,6 +21,8 @@ const questions = [
   },
 ];
 
+
+let dataSaved = false;
 const quizContainer = document.getElementById("quiz-container");
 const questionContainer = document.getElementById("question-container");
 const nextButton = document.getElementById("next-btn");
@@ -51,7 +53,7 @@ let score = 0;
 if (localStorage.getItem("quizScore") != 0) {
   score = localStorage.getItem("quizScore");
 }
-let currentIndex = localStorage.getItem("L_index");
+let currentIndex = parseInt(localStorage.getItem("L_index"));
 let userResponses = Array(questions.length).fill(null);
 
 function displayQuestion(index) {
@@ -80,7 +82,7 @@ function calculateScore() {
     );
     if (selectedOption) {
       userResponses[index] = selectedOption.value;
-      if (selectedOption.value === question.answer && currentIndex < questions.length) {
+      if (selectedOption.value === question.answer) {
         score++;
         localStorage.setItem("quizScore", score);
       }
@@ -90,7 +92,8 @@ function calculateScore() {
 }
 
 function endQuiz() {
-  if (currentIndex != 0) {
+  dataSaved = true;
+  if (currentIndex === questions.length) {
     calculateScore();
     saveCurrentTime("HH:mm:ss");
   }
@@ -132,8 +135,10 @@ function init() {
       calculateScore(); // Move the calculateScore() function call here
       currentIndex++;
       localStorage.setItem("L_index", currentIndex);
+      console.log(
+        "current index" + currentIndex + localStorage.getItem("L_index")
+      );
       displayQuestion(currentIndex);
-      console.log("current index"+currentIndex);
       if (currentIndex === questions.length - 1) {
         nextButton.innerText = "Submit";
         currentIndex++;
@@ -154,5 +159,10 @@ function check() {
   }
 }
 
+window.addEventListener('beforeunload', function(event) {
+  if (!dataSaved) {
+      event.returnValue = "Your Score is not saved yet. Are you sure you want to leave the page?";
+  }
+});
+
 init();
-// check();
