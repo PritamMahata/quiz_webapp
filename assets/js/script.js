@@ -139,8 +139,8 @@ function init() {
     } else {
       console.log("score:" + score);
     }
-  }); // Add a closing parenthesis here
-} // Remove this closing parenthesis
+  });
+}
 
 function check() {
   console.log(localStorage.getItem("isSubmit")); // testing
