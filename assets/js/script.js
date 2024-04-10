@@ -32,9 +32,13 @@ if (
   localStorage.getItem("isSubmit") == undefined ||
   localStorage.getItem("quizScore") == null ||
   localStorage.getItem("quizScore") == "" ||
-  localStorage.getItem("quizScore") == undefined
+  localStorage.getItem("quizScore") == undefined ||
+  localStorage.getItem("L_index") == null ||
+  localStorage.getItem("L_index") == "" ||
+  localStorage.getItem("L_index") == undefined
 ) {
   localStorage.setItem("isSubmit", false);
+  localStorage.setItem("L_index", 0);
   if (localStorage.getItem("quizScore") != 0) {
     localStorage.setItem("quizScore", 0);
   }
@@ -47,7 +51,7 @@ let score = 0;
 if (localStorage.getItem("quizScore") != 0) {
   score = localStorage.getItem("quizScore");
 }
-let currentIndex = 0;
+let currentIndex = localStorage.getItem("L_index");
 let userResponses = Array(questions.length).fill(null);
 
 function displayQuestion(index) {
@@ -76,7 +80,7 @@ function calculateScore() {
     );
     if (selectedOption) {
       userResponses[index] = selectedOption.value;
-      if (selectedOption.value === question.answer) {
+      if (selectedOption.value === question.answer && currentIndex < questions.length) {
         score++;
         localStorage.setItem("quizScore", score);
       }
@@ -111,7 +115,7 @@ function endQuiz() {
   timerElement.style.display = "none";
   nextButton.style.display = "none";
   // resetBtn.style.display = "block";
-  
+
   save();
 }
 
@@ -127,8 +131,9 @@ function init() {
     if (currentIndex < questions.length - 1) {
       calculateScore(); // Move the calculateScore() function call here
       currentIndex++;
+      localStorage.setItem("L_index", currentIndex);
       displayQuestion(currentIndex);
-      console.log(currentIndex);
+      console.log("current index"+currentIndex);
       if (currentIndex === questions.length - 1) {
         nextButton.innerText = "Submit";
         currentIndex++;
@@ -139,8 +144,8 @@ function init() {
     } else {
       console.log("score:" + score);
     }
-  });
-}
+  }); // Add a closing parenthesis here
+} // Remove this closing parenthesis
 
 function check() {
   console.log(localStorage.getItem("isSubmit")); // testing
