@@ -1,24 +1,68 @@
 const questions = [
   {
-    question: '<center><img src="../assets/img/hourglass.png"></center>',
-    options: ["Paris", "Berlin", "London", "Madrid"],
-    answer: "Paris",
+    question: '<center><img src="../assets/img/Question1.jpeg"></center><br/><center>Which Programming Language is this?</center>',
+    options: ["Ruby", "Rust", "Swift", "Kotlin"],
+    answer: "Swift",
   },
+
   {
-    question: "What is the largest planet in our solar system?",
-    options: ["Earth", "Mars", "Jupiter", "Saturn"],
-    answer: "Jupiter",
+    question: "What startup, acquired by Facebook for $1 billion in 2012, became the fourth most downloaded app in the 2010s and is known for the posting of pictures?",
+    options: ["Twitter", "Whatsapp", "Instagram", "Snapchat"],
+    answer: "Instagram",
   },
+
   {
-    question: "Who wrote 'Romeo and Juliet'?",
+    question: "What are the two types of software?",
+    options: ["Application and os", "Application and system", "Apllication and Administrative", "User and system"],
+    answer: "Application and system",
+  },
+
+  {
+    question: "What is the first OTT platform in India?",
+    options: ["nexGTv", "Alt Balaji", "Zee5", "Hotstar"],
+    answer: "ALt Balaji",
+  },
+
+  {
+    question: "Which is the most popular language for game development?",
+    options: ["Python", "C++", "C#", "Javascript"],
+    answer: "C++",
+  },
+
+  {
+    question: "Which is a type of Electrically-Erasable Programmable Read-Only Memory?",
+    options: ["Flash", "Flange", "Fury", "FRAM"],
+    answer: "Flash",
+  },
+
+  {
+    question: "What is the full for of OTT?",
+    options: ["On The Top", "Over The Top", "Out of The Top", "None of the above"],
+    answer: "Over The Top",
+  },
+
+  {
+    question: "Which Programming language runs on the browser?",
+    options: ["Java", "Javascript", "Python", "Ruby"],
+    answer: "Javascript",
+  },
+
+  {
+    question: '<center><img src="../assets/img/CompanyLogo.png"></center><br/><center>Which Company Logo is this?</center>',
+    options: ["LOTEC", "Tesla", "INVICTA", "Gemballa"],
+    answer: "Tesla",
+  },
+
+  {
+    question: "A blue wavy line in Microsoft Word indicates which error?",
     options: [
-      "William Shakespeare",
-      "Charles Dickens",
-      "Jane Austen",
-      "Mark Twain",
+      "Spelling",
+      "Grammar",
+      "Formatting",
+      "Capitalization",
     ],
-    answer: "William Shakespeare",
-  },
+    answer: "Formatting",
+  }
 ];
 
 
