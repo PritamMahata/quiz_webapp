@@ -9,23 +9,18 @@
 </head>
 
 <body>
-    <script>
-        window.onload = function () {
-            localStorage.clear();
-        }
-    </script>
-
     <div class="mid">
         <img src="./assets/img/Frame 2.svg" alt="" srcset="">
     </div>
     <center>
         <div class="show_text">
-            <h3>Interesting QUIZ Awaits You</h3>
+            <h3 id="view_text">Interesting QUIZ Awaits You</h3>
         </div>
     </center>
-    <form class="form" onsubmit="validateForm()" action="" method="post">
+    <form class="form" id="form_con" onsubmit="validateForm()" action="" method="post">
         <label for="leader_name">Select Group Name</label>
-        <input type="text" id="leader_name" name="leader_name" placeholder="Enter your Group name" style="text-transform:uppercase"  required> <br /> <br />
+        <input type="text" id="leader_name" name="leader_name" placeholder="Enter your Group name"
+            style="text-transform:uppercase" required> <br /> <br />
         <label for="leader_name">Select Semester</label>
         <input type="text" id="semester" name="semester" placeholder="Enter your Semester" required>
     </form>
@@ -72,6 +67,5 @@
         }
     </script>
 </body>
-<script src="./assets/js/admin.js"></script>
-
+<script src="./assets/js/index.js"></script>
 </html>
