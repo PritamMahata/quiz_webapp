@@ -20,7 +20,7 @@ const questions = [
   {
     question: "What is the first OTT platform in India?",
     options: ["nexGTv", "Alt Balaji", "Zee5", "Hotstar"],
-    answer: "ALt Balaji",
+    answer: "Alt Balaji",
   },
 
   {
@@ -62,7 +62,7 @@ const questions = [
       "Capitalization",
     ],
     answer: "Formatting",
-  }
+  },
 ];
 
 
@@ -129,6 +129,7 @@ function calculateScore() {
       if (selectedOption.value === question.answer) {
         score++;
         localStorage.setItem("quizScore", score);
+        console.log('correct and score is: ' + score);
       }
     }
   });
