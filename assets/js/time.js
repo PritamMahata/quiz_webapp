@@ -36,7 +36,6 @@ function setTimer() {
         <center>
         <h2 style="color: red;">⏱️Time's up!</h2>
         <div class="result" style="display:flex;flex-direction: column;justify-content:center;align-items:center;height: 100%;width: 100%;">
-          <h2 style="color: green;"> 🏆 Your Score: ${score}/${questions.length} Correct Answers</h2>
           <p style="font-size: 20px;"> 🎉 Congratulations for completing the quiz! 🎉 </p>
         </div></center>
       `;

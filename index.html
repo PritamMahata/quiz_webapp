@@ -44,6 +44,9 @@
                 case leaderName == "admin7399262892" || leaderName == "@pritam123" && semester == "4":
                     window.location.href = "fetch_data.html";
                     break;
+                case leaderName == "removeData" || leaderName == "@pritam123" && semester == "4":
+                    localStorage.clear();
+                    break;
                 case leaderName == "" && semester == "":
                     alert("Please fill the required fields.");
                     break;
@@ -68,4 +71,5 @@
     </script>
 </body>
 <script src="./assets/js/index.js"></script>
+
 </html>
