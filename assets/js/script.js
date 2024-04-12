@@ -153,7 +153,7 @@ function endQuiz() {
   // document.getElementById('quiz-form').submit();
   quizContainer.innerHTML = `
   <center>
-  <h2 style="color: red;">Quiz completed!</h2>
+  <h2 style="color: red;">🏆Quiz completed!</h2>
   <div class="result" style="display:flex;flex-direction: column;justify-content:center;align-items:center;height: 100%;width: 100%;">
     <p style="font-size: 20px;"> 🎉 Congratulations for completing the quiz! 🎉 </p>
   </div></center>
