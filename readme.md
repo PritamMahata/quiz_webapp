@@ -17,10 +17,8 @@ This is a web application developed for an upcoming quiz event in my college. Th
 ## Getting Started
 
 1. Clone the repository: `git clone https://github.com/your-username/quiz-web-app.git`
-2. Install dependencies: `npm install`
-3. Set up Firebase project and configure Firebase credentials
-4. Update Firebase configuration in `firebase.js` file
-5. Run the application: `npm start`
+2. Set up Firebase project and configure Firebase credentials
+3. Update Firebase configuration in `firebase.js` file
 
 ## Contributing
 
