@@ -1,5 +1,12 @@
 var firebaseConfig = {
-  // your firebase configuration
+  apiKey: "AIzaSyAfHn9TSpvfwEnc_qjbXt0XB4VGPFWnVkY",
+  authDomain: "quiz-c288d.firebaseapp.com",
+  databaseURL: "https://quiz-c288d-default-rtdb.firebaseio.com",
+  projectId: "quiz-c288d",
+  storageBucket: "quiz-c288d.appspot.com",
+  messagingSenderId: "500395329413",
+  appId: "1:500395329413:web:86f99586086321f80226ec",
+  measurementId: "G-TZ45439QKP",
 };
 
 firebase.initializeApp(firebaseConfig);
